@@ -4,24 +4,7 @@
         <section id="container">
             <section id="main">
                 <div class="content">
-                    <div id="profile-container" class="tab active">
-                        <div id="profile">
-                            <div class="avatar">
-                                <img src="./assets/me.png" id="picture" alt="My picture">
-                            </div>
-                            <div class="info">
-                                <ul>
-                                    <li id="name">John Doe</li>
-                                    <li id="birthdate">11/10/1990</li>
-                                    <li id="faculty">Software Engineering</li>
-                                </ul>
-                            </div>
-                            <div id="gpa">
-                                <strong>2.75</strong>
-                            </div>
-                            <div class="clear-fix"></div>
-                        </div>
-                    </div>
+                    <app-profile></app-profile>
                     <div id="courses-container" class="tab">
                         <h1 class="title">Courses</h1>
                         <table id="courses">
@@ -80,12 +63,7 @@
                 </div>
             </section>
         </section>
-        <footer>
-            <ul class="links">
-                <a href="https://courses.cs.ut.ee/"> <img class="ikoon1" width="400" height="90" src="./assets/courses.png" title="Courses environment"> </a>
-                <a href="https://ois2.ut.ee/"> <img class="ikoon2" width="320" height="90" src="./assets/ois.svg" title="Õppeinfosüsteem"> </a>
-            </ul>
-        </footer>
+        <app-footer></app-footer>
     </main>
 </template>
 
@@ -121,25 +99,6 @@
         clear: both;
     }
 
-    footer {
-        /* padding: 30px 0; */
-        background-color: #607D8B;
-        /* margin-top: 10px; */
-        height: 100px;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-
-    footer .links {
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        color: #acd7ff;
-        font-size: 11px;
-    }
-
-
     #container {
         width: 80%;
         max-width: 900px;
@@ -147,53 +106,6 @@
         padding: 15px;
         background-color: #ffffff;
         margin: 0 auto;
-    }
-
-    #profile {
-        border-bottom: 1px dashed #a7a7a7;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-    }
-
-    #profile div:not(.clear-fix) {
-        height: 190px;
-        float: left;
-        position: relative;
-    }
-
-    #profile .avatar {
-        width: 35%;
-        text-align: center;
-    }
-
-    #profile .avatar img {
-        width: 180px;
-    }
-
-    #profile .info {
-        width: 45%;
-    }
-
-    #picture {
-        border-radius: 7.5vw;
-    }
-
-    #profile #gpa {
-        width: 20%;
-    }
-
-    #profile #gpa strong {
-        position: absolute;
-        width: 100%;
-        height: 60px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto auto;
-        font-size: 60px;
-        line-height: 60px;
-        text-align: center;
     }
 
     .content {
