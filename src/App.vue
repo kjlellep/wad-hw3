@@ -1,8 +1,6 @@
 <template>
     <main id="app">
-        <header>
-            <strong>Welcome to your dashboard!</strong>
-        </header>
+        <app-header></app-header>
         <section id="container">
             <section id="main">
                 <div class="content">
@@ -56,7 +54,7 @@
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>Estonian language Level A2</td>
+                                <td>Estonian Level A2</td>
                                 <td>2</td>
                                 <td>65</td>
                             </tr>
@@ -84,12 +82,8 @@
         </section>
         <footer>
             <ul class="links">
-                <li>
-                    <a href="https://ois2.ut.ee/" target="_blank">OIS</a>
-                </li>
-                <li>
-                    <a href="https://courses.cs.ut.ee/" target="_blank">Courses</a>
-                </li>
+                <a href="https://courses.cs.ut.ee/"> <img class="ikoon1" width="400" height="90" src="./assets/courses.png" title="Courses environment"> </a>
+                <a href="https://ois2.ut.ee/"> <img class="ikoon2" width="320" height="90" src="./assets/ois.svg" title="Õppeinfosüsteem"> </a>
             </ul>
         </footer>
     </main>
@@ -127,19 +121,10 @@
         clear: both;
     }
 
-    header {
-        padding: 20px;
-        background-color: #2196F3;
-        color: #ffffff;
-        text-align: center;
-        margin-bottom: 10px;
-        height: 60px;
-    }
-
     footer {
-        padding: 30px 0;
+        /* padding: 30px 0; */
         background-color: #607D8B;
-        margin-top: 10px;
+        /* margin-top: 10px; */
         height: 100px;
         position: absolute;
         bottom: 0;
@@ -147,22 +132,13 @@
     }
 
     footer .links {
-        display: block;
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        margin: auto;
         color: #acd7ff;
         font-size: 11px;
     }
 
-    footer .links a {
-        text-decoration: none;
-        color: #acd7ff;
-    }
-
-    footer .links a:hover {
-        text-decoration: underline;
-    }
 
     #container {
         width: 80%;
@@ -198,6 +174,10 @@
         width: 45%;
     }
 
+    #picture {
+        border-radius: 7.5vw;
+    }
+
     #profile #gpa {
         width: 20%;
     }
@@ -219,6 +199,11 @@
     .content {
         padding: 10px;
         border: 1px solid #cbcbcb;
+    }
+
+    .ikoon1 {
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
     table {
