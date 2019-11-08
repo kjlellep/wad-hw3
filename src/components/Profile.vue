@@ -6,22 +6,37 @@
             </div>
             <div class="info">
                 <ul>
-                    <li id="name">John Doe</li>
-                    <li id="birthdate">11/10/1990</li>
-                    <li id="faculty">Software Engineering</li>
+                    <li id="name"> {{name}} </li>
+                    <li id="birthdate"> {{birthdate}} </li>
+                    <li id="faculty"> {{faculty}} </li>
                 </ul>
             </div>
             <div id="gpa">
-                <strong>2.75</strong>
+                <strong> {{gpa}} </strong>
             </div>
             <div class="clear-fix"></div>
         </div>
     </div>
 </template>
 
+<script>
+import User from '../assets/User.js'
+const usr = new User("Clark", "Kent", "10/01/1990", "Software Engineering", 3);
+export default {
+    data() {
+        return {
+            name: usr.getName(),
+            birthdate: usr.getBirthday(),
+            faculty: usr.getFaculty(),
+            gpa: usr.getGpa(),
+        }
+        
+    },
+}
+</script>
+
 <style scoped>
     #profile {
-        border-bottom: 1px dashed #a7a7a7;
         padding-bottom: 10px;
         margin-bottom: 10px;
     }
@@ -65,5 +80,13 @@
         font-size: 60px;
         line-height: 60px;
         text-align: center;
+    }
+
+    .clear-fix {
+        clear: both;
+    }
+
+    .info {
+        font-size: 22px;
     }
 </style>

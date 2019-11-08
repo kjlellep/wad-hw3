@@ -4,60 +4,10 @@
         <section id="container">
             <section id="main">
                 <div class="content">
-                    <app-profile></app-profile>
-                        <div id="courses-container" class="tab">
-                            <h1 class="title">Courses</h1>
-                            <table id="courses">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Course Title</th>
-                                    <th>Semester</th>
-                                    <th>Grade</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Agile software development</td>
-                                    <td>1</td>
-                                    <td>82</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>System modeling</td>
-                                    <td>1</td>
-                                    <td>85</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Object-oriented programming</td>
-                                    <td>2</td>
-                                    <td>99</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Estonian Level A2</td>
-                                    <td>2</td>
-                                    <td>65</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <br>
-                            <br>
-                            <div>
-                                <button id="add-course-button" class="blue-button">+</button>
-                                <span id="add-course">
-                                    <input class="input" type="text" placeholder="Course title" id="title">
-                                    <input class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
-                                    <input class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
-                                    <button class="green-button" id="save-course">Save</button>
-                                    <button class="grey-button" id="cancel-course">Cancel</button>
-                                </span>
-                            </div>
-                        </div>
+                    <app-profile></app-profile>     
+                    <app-courses></app-courses>                   
                 </div>
-                <app-controls @buttonClicked="changeTab($event)"></app-controls>
+                <app-controls @buttonclicked="changeTab($event)"></app-controls>
             </section>
         </section>
         <app-footer></app-footer>
@@ -105,13 +55,6 @@
         padding-bottom: 110px;
     }
 
-    .clear-fix {
-        clear: both;
-    }
-
-    .info {
-        font-size: 22px;
-    }
 
     #container {
         width: 80%;
@@ -121,35 +64,9 @@
         background-color: #ffffff;
         margin: 0 auto;
     }
-    
+
     .content {
         padding: 10px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    table th {
-        padding: 8px 12px;
-        text-align: left;
-        border: 1px solid #cbcbcb;
-        background-color: #03A9F4;
-        color: #ffffff;
-    }
-
-    table td {
-        padding: 8px 12px;
-        border: 1px solid #cbcbcb;
-    }
-
-    .content .tab {
-        display: none;
-    }
-
-    .content .tab.active {
-        display: block;
     }
 
     .blue-button {
@@ -173,13 +90,4 @@
         padding: 10px 20px;
     }
 
-    .input {
-        border: 1px solid #cccccc;
-        padding: 10px 20px;
-        min-width: 135px;
-    }
-
-    #add-course {
-        display: none;
-    }
 </style>
