@@ -1,9 +1,9 @@
 <template>
     <div class="app-footer">
         <div class="links">
-            <a href="https://courses.cs.ut.ee/"> <img class="ikoon1" width="400" height="90" src="../assets/courses.png"
-                                                      title="Courses environment"> </a>
-            <a href="https://ois2.ut.ee/"> <img class="ikoon2" width="320" height="90" src="../assets/ois.svg"
+            <a href="https://courses.cs.ut.ee/"> <img width="400" height="90" src="../assets/courses.png"
+                                                    title="Courses environment"> </a>
+            <a href="https://ois2.ut.ee/"> <img width="320" height="90" src="../assets/ois.svg"
                                                 title="Õppeinfosüsteem"> </a>
         </div>
     </div>
@@ -11,9 +11,9 @@
 
 <style scoped>
     .app-footer {
-        /* padding: 30px 0; */
+        /* padding: 30px 0; /
+        / margin-top: 10px; */
         background-color: #607D8B;
-        /* margin-top: 10px; */
         height: 100px;
         position: absolute;
         bottom: 0;

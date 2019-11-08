@@ -5,62 +5,59 @@
             <section id="main">
                 <div class="content">
                     <app-profile></app-profile>
-                    <div id="courses-container" class="tab">
-                        <h1 class="title">Courses</h1>
-                        <table id="courses">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Course Title</th>
-                                <th>Semester</th>
-                                <th>Grade</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Agile software development</td>
-                                <td>1</td>
-                                <td>82</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>System modeling</td>
-                                <td>1</td>
-                                <td>85</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Object-oriented programming</td>
-                                <td>2</td>
-                                <td>99</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Estonian Level A2</td>
-                                <td>2</td>
-                                <td>65</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <br>
-                        <br>
-                        <div>
-                            <button id="add-course-button" class="blue-button">+</button>
-                            <span id="add-course">
-                                <input class="input" type="text" placeholder="Course title" id="title">
-                                <input class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
-                                <input class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
-                                <button class="green-button" id="save-course">Save</button>
-                                <button class="grey-button" id="cancel-course">Cancel</button>
-                            </span>
+                        <div id="courses-container" class="tab">
+                            <h1 class="title">Courses</h1>
+                            <table id="courses">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Course Title</th>
+                                    <th>Semester</th>
+                                    <th>Grade</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Agile software development</td>
+                                    <td>1</td>
+                                    <td>82</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>System modeling</td>
+                                    <td>1</td>
+                                    <td>85</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Object-oriented programming</td>
+                                    <td>2</td>
+                                    <td>99</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Estonian Level A2</td>
+                                    <td>2</td>
+                                    <td>65</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <br>
+                            <div>
+                                <button id="add-course-button" class="blue-button">+</button>
+                                <span id="add-course">
+                                    <input class="input" type="text" placeholder="Course title" id="title">
+                                    <input class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
+                                    <input class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
+                                    <button class="green-button" id="save-course">Save</button>
+                                    <button class="grey-button" id="cancel-course">Cancel</button>
+                                </span>
+                            </div>
                         </div>
-                    </div>
                 </div>
-                <div class="controls">
-                    <button id="profile-button" class="pill active">Profile</button>
-                    <button id="courses-button" class="pill">Courses</button>
-                </div>
+                <app-controls @buttonClicked="changeTab($event)"></app-controls>
             </section>
         </section>
         <app-footer></app-footer>
@@ -71,14 +68,27 @@
 
     export default {
         name: 'app',
-        components: {}
+        data () {
+            
+        },
+        methods: {
+            changeTab(event) {
+                if (event == 0) {
+                    document.getElementById("profile-container").style.display = "block";
+                    document.getElementById("courses-container").style.display = "none";
+                } else if (event == 1) {
+                    document.getElementById("profile-container").style.display = "none";
+                    document.getElementById("courses-container").style.display = "block";
+                }
+            }
+        }
     }
 </script>
 
 <style>
     * {
         box-sizing: border-box;
-        font-family: 'Livvic', sans-serif;
+        font-family: Cambria, sans-serif;
     }
 
     html, body {
@@ -99,6 +109,10 @@
         clear: both;
     }
 
+    .info {
+        font-size: 22px;
+    }
+
     #container {
         width: 80%;
         max-width: 900px;
@@ -107,21 +121,14 @@
         background-color: #ffffff;
         margin: 0 auto;
     }
-
+    
     .content {
         padding: 10px;
-        border: 1px solid #cbcbcb;
-    }
-
-    .ikoon1 {
-        padding-left: 50px;
-        padding-right: 50px;
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
-
     }
 
     table th {
@@ -143,26 +150,6 @@
 
     .content .tab.active {
         display: block;
-    }
-
-    .controls .pill {
-        border: 1px solid #cbcbcb;
-        background-color: #eaeaea;
-        padding: 10px;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-top: none;
-        margin-top: -1px;
-        outline: none !important;
-    }
-
-    .controls .pill.active {
-        background-color: #ffffff;
-        border-top: 1px solid #ffffff;
-    }
-
-    .controls .pill:hover {
-        cursor: pointer;
     }
 
     .blue-button {
