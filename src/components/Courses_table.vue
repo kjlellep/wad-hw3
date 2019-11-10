@@ -11,29 +11,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Agile software development</td>
-                        <td>1</td>
-                        <td>82</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>System modeling</td>
-                        <td>1</td>
-                        <td>85</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Object-oriented programming</td>
-                        <td>2</td>
-                        <td>99</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Estonian Level A2</td>
-                        <td>2</td>
-                        <td>65</td>
+                    <tr v-for="course in courseArray" v-bind:key="course.getTitle()">
+                        <td> {{ courseArray.indexOf(course) + 1 }} </td>
+                        <td> {{ course.getTitle() }} </td>
+                        <td> {{ course.getSemester() }} </td>
+                        <td> {{ course.getGrade() }} </td>
                     </tr>
                 </tbody>
             </table>
@@ -54,29 +36,46 @@
 
 <script>
 import Course from '../assets/Course.js'
-export default {
-    data() {
-        return {
-            name: "",
-            semester: "",
-            grade: "",
-            course: new Course(this.name, this.semester, this.grade),
+
+    export default {
+        data() {
+            return {
+                emptyTitle: "",
+                emptySemester: "",
+                emptyGrade: "",
+                courseArray: [new Course("Object-oriented programming", 2, 90), new Course("Programming", 1, 70), new Course("Software Testing", 4, 55), new Course("English C1", 1, 95)],
+            }
+        },
+        methods: {        
+            addItem(course) {
+                this.courseArray.push(course);
+            },
+
+            addClicked() {
+                document.getElementById('input-form').classList.toggle("add-course");
+                document.getElementById('title').value = this.emptyTitle;
+                document.getElementById('semester').value = this.emptySemester;
+                document.getElementById('grade').value = this.emptyGrade;
+            },
+
+            saveClicked() {
+                let a = document.getElementById('title').value;
+                let b = document.getElementById('semester').value;
+                let c = document.getElementById('grade').value;
+                if (a != null && a != "", b != null && b != "", c != null && c != "") {
+                    let newCourse = new Course(document.getElementById('title').value, document.getElementById('semester').value, document.getElementById('grade').value);
+                    this.addItem(newCourse);
+                    this.$emit('gradeAdded', this.courseArray);
+                }
+            },
+
+            cancelClicked() {
+                document.getElementById('title').value = this.emptyTitle;
+                document.getElementById('semester').value = this.emptySemester;
+                document.getElementById('grade').value = this.emptyGrade;
+            }
         }
-    },
-    methods: {
-        addClicked() {
-            document.getElementById('input-form').classList.toggle("add-course");
-        },
-        saveClicked() {
-            this.course = new Course();
-            alert("save clicked");
-        },
-        cancelClicked() {
-            alert("cancel clicked");
-        },
-        
     }
-}
 </script>
 
 <style scoped>

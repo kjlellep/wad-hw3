@@ -4,7 +4,7 @@
         <section id="container">
             <section id="main">
                 <div class="content">
-                    <app-profile></app-profile>     
+                    <app-profile :courseArray="array"></app-profile>     
                     <app-courses></app-courses>                   
                 </div>
                 <app-controls @buttonclicked="changeTab($event)"></app-controls>
@@ -15,11 +15,12 @@
 </template>
 
 <script>
-
     export default {
         name: 'app',
-        data () {
-            
+        data() {
+            return {
+                array: [1,2,3],
+            }
         },
         methods: {
             changeTab(event) {

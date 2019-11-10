@@ -6,13 +6,13 @@
             </div>
             <div class="info">
                 <ul>
-                    <li id="name"> {{name}} </li>
-                    <li id="birthdate"> {{birthdate}} </li>
-                    <li id="faculty"> {{faculty}} </li>
+                    <li id="name"> {{ name }} </li>
+                    <li id="birthdate"> {{ birthdate }} </li>
+                    <li id="faculty"> {{ faculty }} </li>
                 </ul>
             </div>
             <div id="gpa">
-                <strong> {{gpa}} </strong>
+                <strong> {{ gpa }} </strong>
             </div>
             <div class="clear-fix"></div>
         </div>
@@ -22,17 +22,25 @@
 <script>
 import User from '../assets/User.js'
 const usr = new User("Clark", "Kent", "10/01/1990", "Software Engineering", 3);
-export default {
-    data() {
-        return {
-            name: usr.getName(),
-            birthdate: usr.getBirthday(),
-            faculty: usr.getFaculty(),
-            gpa: usr.getGpa(),
+
+    export default {
+        data() {
+            return {
+                name: usr.getName(),
+                birthdate: usr.getBirthday(),
+                faculty: usr.getFaculty(),
+                gpa: usr.getGpa()
+            }        
+        },
+        props: {
+            courseArray: Array,
+        },
+        watch: {
+            'courseArray': function() {
+                usr.setGpa(usr.calcGrade(this.courseArray));
+            }
         }
-        
-    },
-}
+    }
 </script>
 
 <style scoped>

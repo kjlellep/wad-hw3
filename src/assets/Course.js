@@ -6,4 +6,16 @@ export default class Course {
 		this.grade = grade;
 	}
 
+	getTitle() {
+		return this.title;
+	}
+
+	getSemester() {
+		return this.semester;
+	}
+
+	getGrade() {
+		return this.grade;
+	}
+
 }
