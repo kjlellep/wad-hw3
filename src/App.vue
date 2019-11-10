@@ -5,9 +5,9 @@
             <section id="main">
                 <div class="content">
                     <app-profile :courseArray="array"></app-profile>     
-                    <app-courses></app-courses>                   
+                    <app-courses @load-courses="updateArray($event)"></app-courses>                   
                 </div>
-                <app-controls @buttonclicked="changeTab($event)"></app-controls>
+                <app-controls @button-clicked="changeTab($event)"></app-controls>
             </section>
         </section>
         <app-footer></app-footer>
@@ -19,7 +19,7 @@
         name: 'app',
         data() {
             return {
-                array: [1,2,3],
+                array: [],
             }
         },
         methods: {
@@ -31,6 +31,9 @@
                     document.getElementById("profile-container").style.display = "none";
                     document.getElementById("courses-container").style.display = "block";
                 }
+            },
+            updateArray(array) {
+                this.array = array;
             }
         }
     }

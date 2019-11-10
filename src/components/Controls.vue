@@ -15,12 +15,12 @@ export default {
     },
     methods: {
         ClickedProfile() {
-            this.$emit('buttonclicked', 0);
+            this.$emit('button-clicked', 0);
             this.cActive = false;
             this.pActive = true;
         },
         ClickedCourses() {
-            this.$emit('buttonclicked', 1);
+            this.$emit('button-clicked', 1);
             this.cActive = true;
             this.pActive = false;
         }

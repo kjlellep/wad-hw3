@@ -28,7 +28,7 @@ export default class User {
 		this.gpa = newGpa;
 	}
 
-	convertGrade(grade) {
+	static convertGrade(grade) {
 		if (grade > 90) {
 			return 4;
 		} else if (grade > 80) {
@@ -48,7 +48,7 @@ export default class User {
 
 		let sum = 0;
 		courseArray.forEach(function(item) {
-			sum += this.convertGrade(item.getGrade());
+			sum += User.convertGrade(item.getGrade());
 		})
 
 		return Math.round((sum / courseArray.length) * 100) / 100;

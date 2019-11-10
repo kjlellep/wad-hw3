@@ -28,18 +28,17 @@ const usr = new User("Clark", "Kent", "10/01/1990", "Software Engineering", 3);
             return {
                 name: usr.getName(),
                 birthdate: usr.getBirthday(),
-                faculty: usr.getFaculty(),
-                gpa: usr.getGpa()
+                faculty: usr.getFaculty()
             }        
+        },
+        computed: {
+            gpa: function() {
+                return usr.calcGrade(this.courseArray);
+            }
         },
         props: {
             courseArray: Array,
         },
-        watch: {
-            'courseArray': function() {
-                usr.setGpa(usr.calcGrade(this.courseArray));
-            }
-        }
     }
 </script>
 

@@ -28,7 +28,7 @@
                 <input class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
                 <input class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
                 <button @click="saveClicked" class="green-button" id="save-course">Save</button>
-                <button @click="cancelClicked" class="grey-button" id="cancel-course">Cancel</button>
+                <button @click="addClicked" class="grey-button" id="cancel-course">Cancel</button>
             </span>
         </div>
     </div>
@@ -46,16 +46,19 @@ import Course from '../assets/Course.js'
                 courseArray: [new Course("Object-oriented programming", 2, 90), new Course("Programming", 1, 70), new Course("Software Testing", 4, 55), new Course("English C1", 1, 95)],
             }
         },
+        mounted() {
+            this.$emit('load-courses', this.courseArray);
+        },
         methods: {        
-            addItem(course) {
-                this.courseArray.push(course);
+            emptyFields() {
+                document.getElementById('title').value = this.emptyTitle;
+                document.getElementById('semester').value = this.emptySemester;
+                document.getElementById('grade').value = this.emptyGrade;
             },
 
             addClicked() {
                 document.getElementById('input-form').classList.toggle("add-course");
-                document.getElementById('title').value = this.emptyTitle;
-                document.getElementById('semester').value = this.emptySemester;
-                document.getElementById('grade').value = this.emptyGrade;
+                this.emptyFields();
             },
 
             saveClicked() {
@@ -63,17 +66,10 @@ import Course from '../assets/Course.js'
                 let b = document.getElementById('semester').value;
                 let c = document.getElementById('grade').value;
                 if (a != null && a != "", b != null && b != "", c != null && c != "") {
-                    let newCourse = new Course(document.getElementById('title').value, document.getElementById('semester').value, document.getElementById('grade').value);
-                    this.addItem(newCourse);
-                    this.$emit('gradeAdded', this.courseArray);
+                    this.courseArray.push(new Course(a, b, c));
+                    this.addClicked();
                 }
             },
-
-            cancelClicked() {
-                document.getElementById('title').value = this.emptyTitle;
-                document.getElementById('semester').value = this.emptySemester;
-                document.getElementById('grade').value = this.emptyGrade;
-            }
         }
     }
 </script>
