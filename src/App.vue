@@ -1,6 +1,16 @@
 <template>
     <main id="app">
         <app-header></app-header>
+<<<<<<< HEAD
+            <section id="container">
+                <section id="main">
+                    <div class="content">
+                        <app-profile :courseArray="array"></app-profile>     
+                        <app-courses @load-courses="updateArray($event)"></app-courses>                   
+                    </div>
+                    <app-controls @button-clicked="changeTab($event)"></app-controls>
+                </section>
+=======
         <section id="container">
             <section id="main">
                 <div class="content">
@@ -8,8 +18,8 @@
                     <app-courses @load-courses="updateArray($event)"></app-courses>                   
                 </div>
                 <app-controls @button-clicked="changeTab($event)"></app-controls>
+>>>>>>> 6aec7113da124173e6feef0427f57423036c20f8
             </section>
-        </section>
         <app-footer></app-footer>
     </main>
 </template>
@@ -22,6 +32,7 @@
                 array: [],
             }
         },
+
         methods: {
             changeTab(event) {
                 if (event == 0) {
@@ -32,6 +43,10 @@
                     document.getElementById("courses-container").style.display = "block";
                 }
             },
+<<<<<<< HEAD
+            
+=======
+>>>>>>> 6aec7113da124173e6feef0427f57423036c20f8
             updateArray(array) {
                 this.array = array;
             }
@@ -40,9 +55,11 @@
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
     * {
         box-sizing: border-box;
-        font-family: Cambria, sans-serif;
+        font-family: 'Muli', cursive, sans-serif;
     }
 
     html, body {
