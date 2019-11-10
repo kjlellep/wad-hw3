@@ -65,12 +65,18 @@ import Course from '../assets/Course.js'
                 let a = document.getElementById('title').value;
                 let b = document.getElementById('semester').value;
                 let c = document.getElementById('grade').value;
-                if (a != null && a != "", b != null && b != "", c != null && c != "") {
-                    this.courseArray.push(new Course(a, b, c));
-                    this.addClicked();
-                }
-            },
+                if (a != null && a != "" && b != null && b != "" && c != null && c != "") {
+                    if (this.courseArray.some(function(item) {
+                        return item.getTitle() == a;
+                    })) {
+                        alert("Entering a duplicate course: " + a);
+                    } else {
+                        this.courseArray.push(new Course(a, b, c));
+                        this.addClicked();
+                    }
+            }
         }
+    }
     }
 </script>
 
